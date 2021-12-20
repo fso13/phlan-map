@@ -1,5 +1,4 @@
 ymaps.ready(function () {
-
     var LAYER_NAME = 'user#layer',
         MAP_TYPE_NAME = 'user#customMap',
         // Директория с тайлами.
@@ -65,10 +64,7 @@ ymaps.ready(function () {
             // restrictMapArea: [[0, 0], [PIC_HEIGHT, PIC_WIDTH]]
         });
 
-    // Создаем многоугольник, используя вспомогательный класс Polygon.
     var polygonA = new ymaps.Polygon([
-        // Указываем координаты вершин многоугольника.
-        // Координаты вершин внешнего контура.
         [
             [-41.2181, -50.1090],
             [-229.000, -295.000],
@@ -77,109 +73,337 @@ ymaps.ready(function () {
         ]
 
     ], {
-        // Описываем свойства геообъекта.
-        // Содержимое балуна.
         hintContent: 'Замок Вальево',
         balloonContent: 'Наибольшее строение в Флане является средоточием городской власти, расположением Киноварного трона, где сейчас обитает Лорд-регент Эктор Брамс и его семья. После годов Жентаримского владычества, замок неоднократно подвергался капитальному ремонту. Сам замок огромен, его величественные стены из гранита и мрамора увенчаны внушающими трепет башнями.'
     }, {
-        // Задаем опции геообъекта.
-        // Цвет заливки.
         fillColor: 'rgba(255,0,0,0.37)',
         opacity: 0.75,
-        // Ширина обводки.
         strokeWidth: 4,
-        // Стиль обводки.
         strokeStyle: 'shortdash'
     });
 
-    // Добавляем многоугольник на карту.
     map.geoObjects.add(polygonA);
 
-    var pointA = new ymaps.Placemark([-200, 0], {
-        iconContent: 'Замок Вальево',
-        balloonContent: 'Наибольшее строение в Флане является средоточием городской власти, расположением Киноварного трона, где сейчас обитает Лорд-регент Эктор Брамс и его семья. После годов Жентаримского владычества, замок неоднократно подвергался капитальному ремонту.\n' +
-            'Сам замок огромен, его величественные стены из гранита и мрамора увенчаны внушающими трепет башнями.'
-    }, {
-        preset: 'islands#redStretchyIcon'
-    });
-    var pointB = new ymaps.Placemark([-400, -400], {
-        iconContent: 'Стояновский Ворота',
+    var polygonB = new ymaps.Polygon([
+        [
+            [-363.000, -517.000],
+            [-319.000, -471.000],
+            [-524.000, -253.000],
+            [-564.000, -295.00]
+        ]
+
+    ], {
+        hintContent: 'Стояновский Ворота',
         balloonContent: 'Колоссальное сооружение, по слухам, построенное огненными гигантами, содержит в себе штаб квартиру рыцарей Черного Кулака и является единственным входом в замок Вальево.\n' +
             'Огромные стены 60 футов высотой и почти вполовину такой же толщины протянулись в обе стороны от массивных, окованных железом дверей, которые закрываются только на военное время. Преступники, арестованные во Флане, содержатся в Стояновских Воротах (и большинство из них будут повешены здесь же).\n' +
             'За верхнюю часть стены на толстых веревках подвешены тела, медленно вращающиеся на ветру в то время, как вороны выклевывают у них наиболее вкусные части. Длинная очередь людей выстроилась к письменному столу, где на вид скучающий стражник работает с огромным гроссбухом.\n' +
             'Рыцари Черного Кулака охраняют Ворота Стоянов, единственный вход в Замок Вальево, а также выступают стражниками битком набитых тюремных камер внутри заставы.'
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
-    var pointC = new ymaps.Placemark([-650, -150], {
-        iconContent: 'Лицей Черного Лорда'
+
+    map.geoObjects.add(polygonB);
+
+    var polygonC = new ymaps.Polygon([
+        [
+            [-790.000, -126.000],
+            [-677.000, -21.0000],
+            [-583.000, -159.000],
+            [-676.000, -248.000]
+        ]
+
+    ], {
+        hintContent: 'Лицей Черного Лорда',
+        balloonContent: 'Этот большой храм когда-то был посвящен Бейну, но в беспорядках, последовавших за смертью Лорда-протектора, он был разграблен, сожжен, а его священнослужители убиты. Вскоре после этого, Пайони и Рог ходатайствовали перед Лордом-регентом о получении разрешения использовать этот участок земли в качестве убежища для нуждающихся в исцелении или просто горячей пище.'
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
-    var pointD = new ymaps.Placemark([-750, -700], {
-        iconContent: 'Подол',
+
+    map.geoObjects.add(polygonC);
+
+    var polygonD = new ymaps.Polygon([
+        [
+            [-876.000, -657.000],
+            [-760.000, -558.000],
+            [-652.000, -684.000],
+            [-769.000, -787.000]
+        ]
+
+    ], {
+        hintContent: 'Подол',
         balloonContent: 'Бывшая ранее шумным рынком под открытым небом, эта площадь сейчас занята торговыми ларьками с выцветшими и оборванными тентами.'
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
-    var pointE = new ymaps.Placemark([-900, -1000], {
-        iconContent: 'Текстиль Кадорны'
+
+    map.geoObjects.add(polygonD);
+
+    var polygonE = new ymaps.Polygon([
+        [
+            [-1046.00, -996.000],
+            [-926.000, -870.000],
+            [-806.000, -998.000],
+            [-916.000, -1106.00]
+        ]
+
+    ], {
+        hintContent: 'Текстиль Кадорны',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
+
+    map.geoObjects.add(polygonE);
+
     var pointF = new ymaps.Placemark([-1100, -900], {
-        iconContent: 'Библиотека Мантора'
     }, {
-        preset: 'islands#redStretchyIcon'
+        preset: 'islands#blueBookCircleIcon'
     });
-    var pointG = new ymaps.Placemark([-1050, -600], {
-        iconContent: '"Треснувшая Корона"'
+    map.geoObjects.add(pointF);
+
+    var polygonF = new ymaps.Polygon([
+        [
+            [-1178.00, -857.000],
+            [-1081.00, -749.000],
+            [-994.000, -833.000],
+            [-1093.00, -942.000]
+        ]
+
+    ], {
+        hintContent: 'Библиотека Мантора',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+        iconContent: 'islands#blueStretchyIcon'
+
     });
-    var pointH = new ymaps.Placemark([-900, -450], {
-        iconContent: 'Колодец Куто',
-        balloonContent: 'Этот большой, но ничем не примечательный колодец в старом Флане раньше служил входом в обширные подземные части города. В 1489 ЛД Лорд-регент приказал запечатать колодец, для защиты города от тех, кто обитает под ним. На самом деле, приказ был отдан потому, что колодец представлял собой ещё один ход в Замок Вальево. Когда-то им воспользовались как раз таким образом для того, чтобы повергнуть Тирантраксуса.'
+
+    map.geoObjects.add(polygonF);
+
+    var pointG = new ymaps.Placemark([ -1104.00, -593.000], {
     }, {
-        preset: 'islands#redStretchyIcon'
+        preset: 'islands#blueHotelCircleIcon'
     });
-    var pointI = new ymaps.Placemark([-1100, -300], {
-        iconContent: '"Колокольчик Нэта Вайлера"'
+    map.geoObjects.add(pointG);
+
+    var polygonG = new ymaps.Polygon([
+        [
+            [-1157.83, -609.411],
+            [-1115.83, -545.411],
+            [-1073.83, -574.411],
+            [-1044.83, -606.411],
+            [-1059.83, -642.411],
+            [-1098.83, -617.411],
+            [-1112.83, -637.411],
+            [-1148.83, -614.411]
+        ]
+
+    ], {
+        hintContent: 'Постоялый двор "Треснувшая Корона"',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
-    var pointJ = new ymaps.Placemark([-1100, 50], {
-        iconContent: 'Башня Денлора'
+
+    map.geoObjects.add(polygonG);
+
+    var circleH = new ymaps.Circle([
+        // Координаты центра круга.
+        [-909.000, -494.000],
+        40
+    ], {
+        balloonContent: 'Этот большой, но ничем не примечательный колодец в старом Флане раньше служил входом в обширные подземные части города. В 1489 ЛД Лорд-регент приказал запечатать колодец, для защиты города от тех, кто обитает под ним.' +
+            ' На самом деле, приказ был отдан потому, что колодец представлял собой ещё один ход в Замок Вальево. Когда-то им воспользовались как раз таким образом для того, чтобы повергнуть Тирантраксуса.',
+        // Содержимое хинта.
+        hintContent: "Колодец Куто"
     }, {
-        preset: 'islands#redStretchyIcon'
+        draggable: false,
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
     });
-    var pointK = new ymaps.Placemark([-1200, 100], {
-        iconContent: '"Смеющийся гоблин"',
+
+    map.geoObjects.add(circleH);
+
+    var pointT = new ymaps.Placemark([ -1070.00, -325.000], {
+    }, {
+        preset: 'islands#blueFoodCircleIcon'
+    });
+    map.geoObjects.add(pointT);
+
+    var polygonI = new ymaps.Polygon([
+        [
+            [-1081.00, -291.000],
+            [-1038.00, -307.000],
+            [-1067.00, -353.000],
+            [-1098.00, -331.000]
+        ]
+
+    ], {
+        hintContent: 'Таверна "Колокольчик Нэта Вайлера"',
+        balloonContent: ''
+    }, {
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
+    });
+
+    map.geoObjects.add(polygonI);
+
+    var circleJ = new ymaps.Circle([
+        // Координаты центра круга.
+        [-1119.00, 28.0000],
+        30
+    ], {
+        balloonContent: 'Эта башня ныне необитаема, но ранее служила домом для могущественного волшебника (на самом деле тайного шпиона Красных Волшебников из Тея),' +
+            ' а теперь находится под контролем Лорда-мудреца Флана. Перед тем как башня была заброшена, множество могущественных оберегов были наложены по всей башне, и теперь Лорд-мудрец ищет способы их обезвредить.',
+        // Содержимое хинта.
+        hintContent: "Башня Денлора"
+    }, {
+        draggable: false,
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash'
+    });
+
+    map.geoObjects.add(circleJ);
+
+    var pointK = new ymaps.Placemark([ -1257.00, 117.000], {
+    }, {
+        preset: 'islands#blueHotelCircleIcon'
+    });
+    map.geoObjects.add(pointK);
+
+    var polygonK = new ymaps.Polygon([
+        [
+            [-1306.00, 110.000],
+            [-1259.00, 154.000],
+            [-1198.00, 93.0000],
+            [-1229.00, 68.0000],
+            [-1281.00, 77.0000]
+        ]
+
+    ], {
+        hintContent: 'Постоялый двор "Смеющийся гоблин"',
         balloonContent: 'Большая старая темная таверна, у которой бывали времена и получше. Мебель износилась, штукатурка, когда-то белая, теперь пожелтела и осыпается, а люстры и лампы поржавели. Мебель носит следы интенсивного использования и шрамы от разных потасовок.' +
-            'Общий зал двухэтажный, с большим открытым пространством в центре, где находится бар, сцена и большой очаг. По стенам расположено несколько кабинок, а остальную часть зала заполняют обычные столы. Единственный примечательный элемент декора в общем зале - это большой резной тотем, напоминающий смеющегося гоблина. Тотем явно очень старый и поизносившийся.'
+            'Общий зал двухэтажный, с большим открытым пространством в центре, где находится бар, сцена и большой очаг. По стенам расположено несколько кабинок,' +
+            ' а остальную часть зала заполняют обычные столы. Единственный примечательный элемент декора в общем зале - это большой резной тотем, напоминающий смеющегося гоблина. Тотем явно очень старый и поизносившийся.'
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
-    var pointL = new ymaps.Placemark([-1700, -800], {
-        iconContent: 'Крепость Сокол'
+    map.geoObjects.add(polygonK);
+
+    var polygonL = new ymaps.Polygon([
+        [
+            [-1835.00, -994.740],
+            [-1866.00, -777.740],
+            [-1770.00, -656.740],
+            [-1555.00, -597.740],
+            [-1433.00, -804.740],
+            [-1722.00, -1099.74]
+        ]
+
+    ], {
+        hintContent: 'Крепость Сокол',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
-    var pointM = new ymaps.Placemark([-700, 500], {
-        iconContent: 'Особняк Ковел'
+    map.geoObjects.add(polygonL);
+
+    var polygonM = new ymaps.Polygon([
+        [
+            [-774.000, 468.000],
+            [-751.000, 557.000],
+            [-689.000, 612.000],
+            [-589.000, 494.000],
+            [-632.000, 438.000],
+            [-716.000, 413.000]
+        ]
+
+    ], {
+        hintContent: 'Особняк Ковел',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
-    var pointN = new ymaps.Placemark([-1000, 800], {
-        iconContent: 'Дом Яннарск'
+    map.geoObjects.add(polygonM);
+
+    var polygonN = new ymaps.Polygon([
+        [
+            [-987.000, 685.000],
+            [-865.000, 807.000],
+            [-928.000, 865.000],
+            [-1044.00, 756.000]
+        ]
+
+    ], {
+        hintContent: 'Дом Яннарск',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
-    var pointO = new ymaps.Placemark([-1500, 1300], {
-        iconContent: 'Красные Перья'
+    map.geoObjects.add(polygonN);
+
+    var polygonO = new ymaps.Polygon([
+        [
+            [-1580.00, 1288.00],
+            [-1357.00, 1364.00],
+            [-1338.00, 1297.00],
+            [-1436.00, 1254.00],
+            [-1408.00, 1187.00],
+            [-1522.00, 1134.00]
+        ]
+
+    ], {
+        hintContent: 'Красные Перья',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
+    map.geoObjects.add(polygonO);
+
     var pointP = new ymaps.Placemark([-750, 1100], {
         iconContent: 'Брайс Ванг'
     }, {
@@ -201,37 +425,56 @@ ymaps.ready(function () {
     }, {
         preset: 'islands#blueStretchyIcon'
     });
-    var pointT = new ymaps.Placemark([50, 950], {
-        iconContent: 'Вельветовый Дублет'
+
+    var pointT = new ymaps.Placemark([ 3.00000, 980.000], {
     }, {
-        preset: 'islands#redStretchyIcon'
+        preset: 'islands#blueFoodCircleIcon'
     });
-    var pointU = new ymaps.Placemark([1200, 2000], {
-        iconContent: 'Замок Атюк'
+    map.geoObjects.add(pointT);
+
+    var polygonT = new ymaps.Polygon([
+        [
+            [-27.0000, 972.000],
+            [3.00000, 1014.00],
+            [46.0000, 981.000],
+            [8.00000, 941.000]
+        ]
+
+    ], {
+        hintContent: 'Пиршественная зала Вельветовый Дублет',
+        balloonContent: ''
     }, {
-        preset: 'islands#redStretchyIcon'
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
     });
-    // map.geoObjects.add(pointA);
-    map.geoObjects.add(pointB);
-    map.geoObjects.add(pointC);
-    map.geoObjects.add(pointD);
-    map.geoObjects.add(pointE);
-    map.geoObjects.add(pointF);
-    map.geoObjects.add(pointG);
-    map.geoObjects.add(pointH);
-    map.geoObjects.add(pointI);
-    map.geoObjects.add(pointJ);
-    map.geoObjects.add(pointK);
-    map.geoObjects.add(pointL);
-    map.geoObjects.add(pointM);
-    map.geoObjects.add(pointN);
-    map.geoObjects.add(pointO);
+  map.geoObjects.add(polygonT);
+
+    var polygonU = new ymaps.Polygon([
+        [
+            [1200.91, 2122.00],
+            [1273.91, 1839.00],
+            [988.911, 1919.00]
+        ]
+
+    ], {
+        hintContent: 'Замок Атюк',
+        balloonContent: ''
+    }, {
+        fillColor: 'rgba(255,0,0,0.37)',
+        opacity: 0.75,
+        strokeWidth: 4,
+        strokeStyle: 'shortdash',
+
+    });
+    map.geoObjects.add(polygonU);
+
     map.geoObjects.add(pointP);
     map.geoObjects.add(pointQ);
     map.geoObjects.add(pointR);
     map.geoObjects.add(pointS);
-    map.geoObjects.add(pointT);
-    map.geoObjects.add(pointU);
 
     // Обработка события, возникающего при щелчке
     // левой кнопкой мыши в любой точке карты.
@@ -257,4 +500,7 @@ ymaps.ready(function () {
         map.hint.close();
     });
 
+    for (var geoObjectsKey in map.geoObjects) {
+        console.log(geoObjectsKey.toString())
+    }
 });
