@@ -52,7 +52,6 @@ ymaps.ready(function () {
             controls: ['zoomControl'],
             type: MAP_TYPE_NAME
         }, {
-
             // Задаем в качестве проекции Декартову. При данном расчёте центр изображения будет лежать в координатах [0, 0].
             projection: new ymaps.projection.Cartesian([[PIC_HEIGHT / 2 - worldSize, -PIC_WIDTH / 2], [PIC_HEIGHT / 2, worldSize - PIC_WIDTH / 2]], [false, false]),
             // Устанавливаем область просмотра карты так, чтобы пользователь не смог выйти за пределы изображения.
@@ -63,6 +62,10 @@ ymaps.ready(function () {
             // projection: new ymaps.projection.Cartesian([[PIC_HEIGHT - worldSize, 0], [PIC_HEIGHT, worldSize]], [false, false]),
             // restrictMapArea: [[0, 0], [PIC_HEIGHT, PIC_WIDTH]]
         });
+    var menu = $('<ul class="m"/>');
+    var collection = new ymaps.GeoObjectCollection(null, {});
+
+
 
     var polygonA = new ymaps.Polygon([
         [
@@ -83,6 +86,7 @@ ymaps.ready(function () {
     });
 
     map.geoObjects.add(polygonA);
+    createSubMenu(polygonA, collection);
 
     var polygonB = new ymaps.Polygon([
         [
@@ -167,12 +171,11 @@ ymaps.ready(function () {
 
     map.geoObjects.add(polygonE);
 
-    var pointF = new ymaps.Placemark([-1100, -900], {
-    }, {
+    var pointF = new ymaps.Placemark([-1100, -900], {}, {
         preset: 'islands#blueBookCircleIcon'
     });
     map.geoObjects.add(pointF);
-
+    createSubMenu(pointF, collection)
     var polygonF = new ymaps.Polygon([
         [
             [-1178.00, -857.000],
@@ -195,8 +198,7 @@ ymaps.ready(function () {
 
     map.geoObjects.add(polygonF);
 
-    var pointG = new ymaps.Placemark([ -1104.00, -593.000], {
-    }, {
+    var pointG = new ymaps.Placemark([-1104.00, -593.000], {}, {
         preset: 'islands#blueHotelCircleIcon'
     });
     map.geoObjects.add(pointG);
@@ -244,8 +246,7 @@ ymaps.ready(function () {
 
     map.geoObjects.add(circleH);
 
-    var pointT = new ymaps.Placemark([ -1070.00, -325.000], {
-    }, {
+    var pointT = new ymaps.Placemark([-1070.00, -325.000], {}, {
         preset: 'islands#blueFoodCircleIcon'
     });
     map.geoObjects.add(pointT);
@@ -289,8 +290,7 @@ ymaps.ready(function () {
 
     map.geoObjects.add(circleJ);
 
-    var pointK = new ymaps.Placemark([ -1257.00, 117.000], {
-    }, {
+    var pointK = new ymaps.Placemark([-1257.00, 117.000], {}, {
         preset: 'islands#blueHotelCircleIcon'
     });
     map.geoObjects.add(pointK);
@@ -426,8 +426,7 @@ ymaps.ready(function () {
         preset: 'islands#blueStretchyIcon'
     });
 
-    var pointT = new ymaps.Placemark([ 3.00000, 980.000], {
-    }, {
+    var pointT = new ymaps.Placemark([3.00000, 980.000], {}, {
         preset: 'islands#blueFoodCircleIcon'
     });
     map.geoObjects.add(pointT);
@@ -450,7 +449,7 @@ ymaps.ready(function () {
         strokeStyle: 'shortdash',
 
     });
-  map.geoObjects.add(polygonT);
+    map.geoObjects.add(polygonT);
 
     var polygonU = new ymaps.Polygon([
         [
@@ -499,6 +498,31 @@ ymaps.ready(function () {
     map.events.add('balloonopen', function (e) {
         map.hint.close();
     });
+
+    function createSubMenu(item, collection) {
+        // Пункт подменю.
+        var submenuItem = $('<li><a href="#">' + item.hintContent + '</a></li>'),
+            // Создаем метку.
+            placemark = new ymaps.Placemark(item.center, {balloonContent: item.hintContent});
+
+        // Добавляем метку в коллекцию.
+        collection.add(placemark);
+        // Добавляем пункт в подменю.
+        submenuItem
+            .appendTo(menu)
+            // При клике по пункту подменю открываем/закрываем баллун у метки.
+            .find('a')
+            .bind('click', function () {
+                if (!placemark.balloon.isOpen()) {
+                    placemark.balloon.open();
+                } else {
+                    placemark.balloon.close();
+                }
+                return false;
+            });
+    }
+
+    menu.appendTo($('#menu'));
 
     for (var geoObjectsKey in map.geoObjects) {
         console.log(geoObjectsKey.toString())
