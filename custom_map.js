@@ -6,9 +6,9 @@ ymaps.ready(function () {
         /* Для того чтобы вычислить координаты левого нижнего и правого верхнего углов прямоугольной координатной
          * области, нам необходимо знать максимальный зум, ширину и высоту изображения в пикселях на максимальном зуме.
          */
-        MAX_ZOOM = 8,
-        PIC_WIDTH = 5632,
-        PIC_HEIGHT = 4096;
+        MAX_ZOOM = 9,
+        PIC_WIDTH = 5632*4,
+        PIC_HEIGHT = 4096*4;
 
     /**
      * Конструктор, создающий собственный слой.
@@ -21,7 +21,7 @@ ymaps.ready(function () {
         });
         // Указываем доступный диапазон масштабов для данного слоя.
         layer.getZoomRange = function () {
-            return ymaps.vow.resolve([0, 8]);
+            return ymaps.vow.resolve([1, 8]);
         };
         // Добавляем свои копирайты.
         layer.getCopyrights = function () {
@@ -47,7 +47,7 @@ ymaps.ready(function () {
          * Создаем карту, указав свой новый тип карты.
          */
         map = new ymaps.Map('map', {
-            center: [-1020.00, 290.000],
+            center: [3552.00, -5688.00],
             zoom: 1,
             controls: ['zoomControl'],
             type: MAP_TYPE_NAME
@@ -62,6 +62,7 @@ ymaps.ready(function () {
             // projection: new ymaps.projection.Cartesian([[PIC_HEIGHT - worldSize, 0], [PIC_HEIGHT, worldSize]], [false, false]),
             // restrictMapArea: [[0, 0], [PIC_HEIGHT, PIC_WIDTH]]
         });
+
     menu = $('<ul class="menu"/>');
 
     for (var i = 0, l = groups.length; i < l; i++) {
