@@ -47,8 +47,8 @@ ymaps.ready(function () {
          * Создаем карту, указав свой новый тип карты.
          */
         map = new ymaps.Map('map', {
-            center: [0, 0],
-            zoom: 2,
+            center: [-1020.00, 290.000],
+            zoom: 1,
             controls: ['zoomControl'],
             type: MAP_TYPE_NAME
         }, {
